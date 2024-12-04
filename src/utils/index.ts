@@ -1,4 +1,6 @@
 import axios from 'axios'
+import sourceMap from 'source-map-js'
+
 
 async function getSourceMap(url: string){
   const res = await axios.get(url);
@@ -7,10 +9,10 @@ async function getSourceMap(url: string){
 
 async function findCodeBySourceMap(stackFrame:any){
   // 获取map 实际生产会将mao文件存放到远程地址
-  const sourceMap = await getSourceMap(stackFrame.fileName + ".map");
-  const fileContent= stackFrame.data;
+  const sourceData = await getSourceMap(stackFrame.fileName + ".map");
+  const fileContent= sourceData.data;
   // 解析map
-  const sourceMapConsumer = new sourceMap.SourceMapConsumer(fileContent);
+  const sourceMapConsumer = await new sourceMap.SourceMapConsumer(fileContent);
   // 通过报错位置查找对应的源文件的名称和行数
   const originalPosition = sourceMapConsumer.originalPositionFor({
     line: stackFrame.line,
