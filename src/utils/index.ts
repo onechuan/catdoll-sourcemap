@@ -15,7 +15,7 @@ async function findCodeBySourceMap(stackFrame:any){
   const sourceMapConsumer = await new sourceMap.SourceMapConsumer(fileContent);
   // 通过报错位置查找对应的源文件的名称和行数
   const originalPosition = sourceMapConsumer.originalPositionFor({
-    line: stackFrame.line,
+    line: stackFrame.lineNumber,
     column: stackFrame.column || 0,
   });
   // 通过sourceContentFor获取对应的源文件
