@@ -11,13 +11,8 @@ export default defineConfig({
     port: 9001
   },
   build:{
+    outDir: 'dist',
     sourcemap: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['vue']
-        }
-      }
-    }
+    emptyOutDir: true,
   }
 })
