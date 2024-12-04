@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import HelloWorld from './components/HelloWorld.vue'
 
 const count = ref(22.33);
 
 function handleCountToFixed() {
-  count.value = count.value.toFixed(-1);
+  count.value = count.value.toFixed(-1) as unknown as number;
 }
 </script>
 
