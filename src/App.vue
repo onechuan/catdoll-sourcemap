@@ -5,6 +5,7 @@ const count = ref(22.33);
 
 function handleCountToFixed() {
   count.value = count.value.toFixed(-1) as unknown as number;
+  throw new Error('error');
 }
 </script>
 
