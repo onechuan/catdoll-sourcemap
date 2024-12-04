@@ -6,7 +6,7 @@ async function getSourceMap(url: string){
 }
 
 async function findCodeBySourceMap(stackFrame:any){
-  // 获取map
+  // 获取map 实际生产会将mao文件存放到远程地址
   const sourceMap = await getSourceMap(stackFrame.fileName + ".map");
   const fileContent= stackFrame.data;
   // 解析map
