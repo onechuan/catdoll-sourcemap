@@ -1,17 +1,17 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue'
+
+const count = ref(22.33);
+
+function handleCountToFixed() {
+  count.value = count.value.toFixed(-1);
+}
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <h1>{{count}}</h1>
+  <button @click="handleCountToFixed" >toFixed</button>
 </template>
 
 <style scoped>
