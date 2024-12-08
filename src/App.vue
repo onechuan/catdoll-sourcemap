@@ -1,3 +1,17 @@
+
+<template>
+  <header>
+    <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
+    <div class="wrapper">
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+      </nav>
+    </div>
+  </header>
+
+  <RouterView />
+</template>
 <script setup lang="ts">
 import { onMounted } from 'vue'
 onMounted(() => {
@@ -8,15 +22,8 @@ onMounted(() => {
 });
 </script>
 
-<template>
-  <header>
-    <div class="wrapper">
-    </div>
-  </header>
 
-  <RouterView />
-</template>
-<style scoped>
+<style scoped lang="scss">
 header {
   line-height: 1.5;
   max-height: 100vh;
